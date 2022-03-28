@@ -1,0 +1,27 @@
+[
+
+ {
+  "id": 4,
+  "nombre": "usuario",
+  "apellido": "prueba",
+  "nombreDeUsuario": "@usuario22",
+  "email": "usuario@gmail.com",
+  "tel": "1160498896",
+  "password": "$2a$10$ivFayD6kj4K0hpEuZTYjm.uDntM7qqJL7bQARm2kYmtpeIxMHwDZ2",
+  "avatar": "1643290990063_img.jpg",
+  "rol": "cliente"
+ },
+ 
+ {
+  "id": 6,
+  "nombre": "administrador",
+  "apellido": "admin",
+  "nombreDeUsuario": "@adminMPC",
+  "email": "administrador@mpc.com",
+  "tel": "1160498896",
+  "password": "$2a$10$hfN6860YGB.l4LH.KWcWwuPGVhHy6qyoN1xIe3RJWUfw4gscBeY9e",
+  "otraPassword": "mpc12345",
+  "avatar": "1643601918812_img.jpg",
+  "rol": "admin"
+ }
+]

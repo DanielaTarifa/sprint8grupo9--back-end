@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('../partials/head') %> 
+    
+
+<body>
+
+    <%- include('../partials/header') %> 
+
+
+    <main class="main-home" >
+        <section class="last-visit">
+        <div class="container">
+            <div class="card">
+                <div class="Background">
+                    
+
+                    <img src="/img/<%=producto.img%>" alt="pc" >
+            
+                </div>
+                <div class="info">
+                    <div class="name">
+                        <div>
+                            <h1><%=producto.name%></h1>
+                        </div>
+                    </div>
+                    <div class="description">
+                        <h3 class="title">ESPECIFICACIONES</h3>
+                        <p class="text"><%=producto.description%>
+                        </p>
+                    </div>
+                
+                    <div class="size-container">
+                        <% for( let cuota of cuotas ) { %>
+                            <% if (cuota.id == producto.duesId) { %>
+                                <h3 class="title" > COMPRALO EN <%= cuota.name%> CUOTAS DE $ <%=parseInt(producto.price/cuota.name)%></h3>
+                                
+                            <% } %>
+                            
+                        <% } %>
+                        
+                    </div>
+                    <div>
+                        <p>Disponibles:
+                            <%= producto.stock %> 
+                        </p>
+                    </div>
+                    
+                    <div class="buy-price">
+                        <a class="buy"></a>
+                        <div class="price22">
+                            <button class="botoneDetail" type="submit"><a  class="letradetail" href="/ProductCart">Agregar a carrito</a> </button>
+                            
+                            <i class="fas fa-dollar-sign"></i>
+                            <h1><%=mil(producto.price)%></h1>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="caja2">
+
+            
+            <h3>TAMBIÉN TE PUEDE INTERESAR</h3>
+            <div class="products">
+
+
+                <%  let i=2%>
+                <% for(let i =0; i < 10; i++){ %>
+                    <!--let (uno de esos muchos, callback) of (muchos)-->
+                    <% if (productos[i].visibility == 1) { %>
+                        <% if (productos[i].sectionId == 1) { %>
+                        <article>
+                            <div class="imagenes">
+                                <a href="#"> <img src="/img/<%=productos[i].img%>" alt="producto" width="360" class="product_img"></a>
+                            </div>
+                            <div class="main-article">
+                                                    
+                            <p class="price">$<%=mil(productos[i].price)%></p>
+                            <p class="discount">Envío Gratis</p>
+                            <h3 class="description"><%=productos[i].name%></h3>
+                            <button class="botone3"><a href="/ProductDetail/<%=productos[i].id%>" class="letra3">Ver más </a></button>
+                            
+                                </div>
+                            </article>
+                        <% } %>
+                                            
+                    <% } %>
+                                        
+                <% } %> 
+            </div>
+            
+
+    </section>
+    </main>
+    <br>
+
+
+    <%- include('../partials/footer') %> 
+    
+</body>
+</html>

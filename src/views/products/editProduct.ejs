@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head') %>
+<body>
+    <%- include('../partials/header') %> 
+
+    <main class="main-editProduct">
+        <div class="edit-product-padre">
+            <h2>Editar producto</h2>
+
+            <form action="/editarProducto/<%=producto.id%>?_method=put " method="POST" id="formuEditProduct" enctype="multipart/form-data">
+                <label for="name">Nombre del Producto</label>
+                 <input class="rellenoAdd" type="text" name="nombre" id="nombre" value="<%= locals.oldData ? oldData.nombre : producto.name %>" >
+                <p class="errors"></p>
+                 <% if (locals.errors && errors.nombre) { %>
+                    <div class="text-danger">
+                        <%= errors.nombre.msg %> 
+                    </div>
+                <% } %>
+
+
+                <label for="price">Precio</label>
+                <input  class="rellenoAdd"type="number" name="precio" id="precio" 
+                value="<%= locals.oldData ? oldData.precio : producto.price %>" >
+                <p class="errors"></p>
+                <% if (locals.errors && errors.precio) { %>
+                    <div class="text-danger">
+                        <%= errors.precio.msg %> 
+                    </div>
+                <% } %>
+
+                <label for="categorias">Categoría</label>
+                <select name="categorias" id="catego" >
+                    <option value="">-Selecione una categoria-</option>
+                    <%let guardadoSelecCatego= locals.oldData ? oldData.categorias : producto.categoryId %>
+                    <% for( let i = 0; i < categorias.length; i++ ) { %>
+                        
+                        <% if ( categorias[i].id == guardadoSelecCatego) { %>
+                            <option value="<%= categorias[i].id %> " selected>
+                                <%= categorias[i].name %> 
+                            </option>
+                        
+                            <% } else{ %>
+
+                                <option value="<%= categorias[i].id %> ">
+                                    <%= categorias[i].name %> 
+                                </option>
+                            <% } %>
+                    <% } %>
+                </select>
+                <p class="errors"></p>
+        <% if (locals.errors && errors.categorias) { %>
+            <div class="text-danger">
+                <%= errors.categorias.msg %> 
+            </div>
+        <% } %>
+        
+                
+        <br>
+                <label for="descripcion">Descripción</label>
+                <textarea  
+                class="rellenoAddDescrition" 
+                type="text" 
+                name="descripcion" 
+                id="descripcion" 
+                cols="10" rows="5"  
+                 ><%= locals.oldData ? locals.oldData.descripcion : producto.description %></textarea>
+                 <p class="errors"></p>
+                 <% if (locals.errors && errors.descripcion) { %>
+                    <div class="text-danger">
+                        <%= errors.descripcion.msg %> 
+                    </div>
+                <% } %>
+                <br>
+                <label for="imagen">Selecciona una imagen</label>
+                <div>
+                    <input 
+                    class="rellenoAdd" 
+                    type="file" 
+                    name="imagen" 
+                    id="imagen" 
+                     value="<%= producto.img %>"><!--aca termina mi input, tons el siguiente seria la <p> entonces esto es lo q selecciona e -->
+                    <p class="errors"></p>
+                <!-- <img src="/img/<%#=producto.img%>" alt="producto" width="100" class="product_img">-->
+                <% if (locals.errors && errors.imagen) { %>
+                    <div class="text-danger">
+                        <%= errors.imagen.msg %> 
+                    </div>
+                <% } %>
+                
+            </div>
+                <br>
+                <label for="cuotas">Cuotas</label>
+                <select name="cuotas" id="coutass">
+                    
+                    
+                    <option value="">-Selecione una Cuota-</option>
+                    <% let guardadoSelectCuota= locals.oldData ? oldData.cuotas : producto.duesId %>
+                    <% for( let i = 0; i < cuotas.length; i++ ) { %>
+                        
+                        <% if (cuotas[i].id == guardadoSelectCuota ) { %>
+                            <option value="<%= cuotas[i].id %>" selected>
+                                <%= cuotas[i].name %> 
+                            </option>
+                        <% } else { %>
+                            <option value="<%= cuotas[i].id %>">
+                                <%= cuotas[i].name %> 
+                            </option>
+                        <% } %>
+                    <% } %>
+                </select>
+                <p class="errors"></p>
+                <% if (locals.errors && errors.cuotas) { %>
+                    <div class="text-danger">
+                        <%= errors.cuotas.msg %> 
+                    </div>
+                <% } %>
+        <br>
+                
+                <label for="stock">stock</label>
+                <input  class="rellenoAdd"type="number" name="stock" id="stock" value="<%=locals.oldData ? oldData.stock :producto.stock%>" >
+                <p class="errors"></p>
+                <% if (locals.errors && errors.stock) { %>
+                    <div class="text-danger">
+                        <%= errors.stock.msg %> 
+                    </div>
+                <% } %>
+
+                <label for="stockMinimo">stock minimo</label>
+                <input  class="rellenoAdd"type="number" name="stockMinimo" id="stockMinimo" value="<%=locals.oldData ? oldData.stockMinimo :producto.stockMin%>" >
+                <p class="errors"></p>
+                <% if (locals.errors && errors.stockMinimo) { %>
+                    <div class="text-danger">
+                        <%= errors.stockMinimo.msg %> 
+                    </div>
+                <% } %>
+
+                <label for="stockMaximo">stock máximo</label>
+                <input  class="rellenoAdd"type="number" name="stockMaximo" id="stockMaximo" value="<%=locals.oldData ? oldData.stockMaximo :producto.stockMax%>" >
+                <p class="errors"></p>
+                <% if (locals.errors && errors.stockMaximo) { %>
+                    <div class="text-danger">
+                        <%= errors.stockMaximo.msg %> 
+                    </div>
+                <% } %>    
+
+                <label for="secciones">Sección</label>
+                <!-- <input  class="rellenoAdd" type="number" name="seccion" id="seccion">-->
+                
+                <select name="secciones" id="secciones">
+                    
+                    <option value="">-Selecione una sección-</option>
+                    <% let guardadoSelectSecc= locals.oldData ? oldData.secciones : producto.sectionId%>
+                    <% for( let i = 0; i < secciones.length; i++ ) { %>
+                        <% if (secciones[i].id == guardadoSelectSecc) { %>
+                            <option value="<%= secciones[i].id %>" selected>
+                                <%= secciones[i].name %> 
+                            </option>
+                        
+                        <% } else { %>
+                            <option value="<%= secciones[i].id %>">
+                                <%= secciones[i].name %> 
+                            </option>
+                        <% } %>
+                    <% } %>
+                </select>
+                <p class="errors"></p>
+                <% if (locals.errors && errors.secciones) { %>
+                    <div class="text-danger">
+                        <%= errors.secciones.msg %> 
+                    </div>
+                <% } %>
+
+        <br>
+        <label  for="visualizacion">Visualizacón</label>
+        <br>
+        <%let guardadoSelecUser= locals.oldData ? oldData.visualizacion : producto.visibility %>
+        <% if (producto.visibility == 1 && producto.visibility == guardadoSelecUser) { %>
+            <input  type="radio" name="visualizacion" id="visualizacion" value="1" checked required>si
+            <input  type="radio" name="visualizacion" id="visualizacion" value="0"required>no
+        <% }else{ %>
+            <input  type="radio" name="visualizacion" id="visualizacion" value="1" required>si
+            <input  type="radio" name="visualizacion" id="visualizacion" value="0" checked required>no
+        <% } %>
+                
+        <p class="errors"></p>
+        <% if (locals.errors && errors.visualizacion) { %>
+            <div class="text-danger">
+                <%= errors.visualizacion.msg %> 
+            </div>
+        <% } %>
+                <br>
+                <button class="botonAdd" type="submit">Editar</button>
+                </form>
+
+
+        </div>
+    </main>
+    <script src="/js/editProductValidaciones.js"></script>
+
+    <%- include('../partials/footer') %> 
+</body>
+
+</html>

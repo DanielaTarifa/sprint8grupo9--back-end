@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+    <%- include('../partials/head') %>
+<body>
+    <%- include('../partials/header') %>
+
+    <div class="main-product-add0">
+        <main class="main-product-add">
+            <div class="formulario-add">
+                
+
+                
+                    <form action="/agregarProducto" method="POST" id="formuProductAdd" enctype="multipart/form-data">
+                        <h2>Agregar nuevo producto</h2>
+                        
+                    <label for="name">Nombre del Producto</label>
+                    
+                    <input 
+                    class="rellenoAdd" 
+                    type="text" 
+                    name="nombre" 
+                    id="nombre" 
+                    placeholder=" " 
+                    value="<%= locals.oldData ? oldData.nombre : null %>"
+                    >
+                    <p class="errors"></p>
+                    <% if (locals.errors && errors.nombre) { %>
+                        <div class="text-danger">
+                            <%= errors.nombre.msg %> 
+                        </div>
+                    <% } %>
+                    
+
+
+                    <br>
+                    <label for="price">Precio</label>
+                    <input  
+                    class="rellenoAdd"
+                    type="number" 
+                    name="precio" 
+                    id="precio" 
+                    value="<%= locals.oldData ? oldData.precio : null %>"
+                    >
+                    <p class="errors"></p>
+                    <% if (locals.errors && errors.precio) { %>
+                        <div class="text-danger">
+                            <%= errors.precio.msg %> 
+                        </div>
+                    <% } %>
+            <br>
+            <label for="categorias">Categoría</label>
+            <div>
+                <select name="categorias" id="catego" >
+                    <option value="">-Selecione una categoria-</option>
+                    <% for( let i = 0; i < categorias.length; i++ ) { %>
+                    
+                    <option value="<%= categorias[i].id %> " <%= locals.oldData && (categorias[i].id == oldData.categorias ? 'selected': null) %>  >
+                        <%= categorias[i].name %> 
+                    </option>
+                    <% } %>
+                </select>
+                <p class="errors"></p>
+            <% if (locals.errors && errors.categorias) { %>
+                <div class="text-danger">
+                    <%= errors.categorias.msg %> 
+                </div>
+            <% } %>
+            </div>
+                    <!-- <input  class="rellenoAdd" type="text" name="categoria" id="categoria" required>-->
+            <br>
+                    <label for="descripcion">Descripcion</label> <!--no me funca esta descripcion y creo  q es por el textarea-->
+                    <textarea  
+                    class="rellenoAddDescrition" 
+                    name="descripcion" 
+                    id="descripcion" 
+                    cols="10" rows="5" 
+                    
+                    ><%= locals.oldData ? locals.oldData.descripcion : null %></textarea>
+                    <p class="errors"></p>
+                    <% if (locals.errors && errors.descripcion) { %>
+                        <div class="text-danger">
+                            <%= errors.descripcion.msg %> 
+                        </div>
+                    <% } %>
+
+
+                    <br>
+                    <label for="imagen">Selecciona una imagen</label>
+                    <input class="rellenoAdd" type="file" name="imagen" id="imagen" 
+                    value="<%= locals.oldData ? oldData.avatar : null %>" >
+                    <p class="errors"></p>
+                    <% if (locals.errors && errors.imagen) { %>
+                        <div class="text-danger">
+                            <%= errors.imagen.msg %> 
+                        </div>
+                    <% } %>
+
+
+                    <label for="cuotas">Cuotas</label>
+                    <select name="cuotas" id="coutass">
+                        <% let guardadoSelectCuota= locals.oldData ? oldData.cuotas : null %> 
+                        
+                        <option value="">-Selecione una Cuota-</option>
+                        
+
+                        <% for( let i = 0; i < cuotas.length; i++ ) { %>
+                        <option value="<%= cuotas[i].id %>" 
+                            <%= locals.oldData && (cuotas[i].id == oldData.cuotas ? 'selected': null) %>  > <!--el numero q se estaguardando en oldDataa.cuotas es el id -->
+                            <%= cuotas[i].name %> 
+                        </option>
+                        <% } %>
+                    </select>
+                    <p class="errors"></p>
+
+                    <% if (locals.errors && errors.cuotas) { %>
+                        <div class="text-danger">
+                            <%= errors.cuotas.msg %> 
+                        </div>
+                    <% } %>
+            <br>
+                    <label for="stock">stock</label>
+                    <input  
+                    class="rellenoAdd"
+                    type="number" 
+                    name="stock" 
+                    id="stock" 
+                    value="<%= locals.oldData ? oldData.stock : null %>"
+                    >
+                    <p class="errors"></p>
+                    <% if (locals.errors && errors.stock) { %>
+                        <div class="text-danger">
+                            <%= errors.stock.msg %> 
+                        </div>
+                    <% } %>
+
+                    <label for="stockMinimo">stock minimo</label>
+                    <input  
+                    class="rellenoAdd"
+                    type="number" 
+                    name="stockMinimo" 
+                    id="stockMinimo" 
+                    value="<%= locals.oldData ? oldData.stockMinimo : null %>"
+                    >
+                    <p class="errors"></p>
+                    <% if (locals.errors && errors.stockMinimo) { %>
+                        <div class="text-danger">
+                            <%= errors.stockMinimo.msg %> 
+                        </div>
+                    <% } %>
+
+                    <label for="stockMaximo">stock máximo</label>
+                    <input  
+                    class="rellenoAdd"
+                    type="number" 
+                    name="stockMaximo" 
+                    id="stockMaximo" 
+                    value="<%= locals.oldData ? oldData.stockMaximo : null %>"
+                    >
+                    <p class="errors"></p>
+                    <% if (locals.errors && errors.stockMaximo) { %>
+                        <div class="text-danger">
+                            <%= errors.stockMaximo.msg %> 
+                        </div>
+                    <% } %>
+
+                    <label for="secciones">Sección</label>
+                    <!-- <input  class="rellenoAdd" type="number" name="seccion" id="seccion">-->
+                    <select name="secciones" id="secciones" >
+                        <option value="">-Selecione una sección-</option>
+                        <% for( let i = 0; i < secciones.length; i++ ) { %>
+                            <option value="<%= secciones[i].id %>" <%= locals.oldData && (secciones[i].id == oldData.secciones ? 'selected': null) %> >
+                                <%= secciones[i].name %> 
+                            </option>
+                            <% } %>
+                    </select>
+                    <p class="errors"></p>
+                    <% if (locals.errors && errors.secciones) { %>
+                        <div class="text-danger">
+                            <%= errors.secciones.msg %> 
+                        </div>
+                    <% } %>
+            <br>
+            <label for="visualizacion">Visualizacón</label>
+            <br>
+             
+            <%let guardadoSelecUser= locals.oldData ? oldData.visualizacion : null %> <!--si cambio null por undefind, en el 3er if tambien preguntare por undefinde, tengo q preguntar lo q cargue -->
+            <% if (guardadoSelecUser == 1) { %>
+                <input  type="radio" name="visualizacion" id="visualizacion" value="1" checked required>si
+                <input  type="radio" name="visualizacion" id="visualizacion" value="0"required>no
+            <% }  if(guardadoSelecUser == 0){ %>
+                <input  type="radio" name="visualizacion" id="visualizacion" value="1" required>si
+                <input  type="radio" name="visualizacion" id="visualizacion" value="0" checked required>no
+            <% } if (guardadoSelecUser == null) { %>
+                    <input  type="radio" name="visualizacion" id="visualizacion" value="1" >si
+                    <input  type="radio" name="visualizacion" id="visualizacion" value="0" >no
+            <% } %>
+
+            
+            
+            <p class="errors"></p>
+                    <% if (locals.errors && errors.visualizacion) { %>
+                        <div class="text-danger">
+                            <%= errors.visualizacion.msg %> 
+                        </div>
+                    <% } %>
+                    <br>
+                    <!-- <input class="rellenoAdd" type="number" name="cuotas" id="cuotas" required>-->
+                    <button class="botonAdd" type="submit">Agregar</button>
+                    </form>
+            
+            </div>
+        </main>
+    </div>
+    <script src="/js/productAddValidaciones.js"></script>
+    <%- include('../partials/footer') %> 
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('../partials/head') %> 
+
+
+<body>
+
+    <%- include('../partials/header') %>
+
+
+    <main class="main-perfil">
+
+        <div >
+
+        <% for(let usuario of listarUsuarios){%>
+            
+        <div class="perfil22" style="width: 300px; margin-bottom: 5%;">
+            <div>
+                <p name="nombre"> Nombre: <%= usuario.name %> </p>
+                <p name="apellido">Apellido: <%= usuario.lastname %> </p>
+                <p name="nombre de usuario"> Nombre de usuario:<%= usuario.userName %> </p>
+                <p name="email"> email: <%= usuario.email %> </p>
+                <p name="telefono">Telefono: <%= usuario.cel %> </p>
+        </div>
+        </div>
+        
+            <% } %>
+        </div>
+        
+    </main>
+
+    <%- include('../partials/footer') %> 
+
+</body>
+</html>
