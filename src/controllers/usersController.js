@@ -18,14 +18,14 @@ const usersController={
     register:(req,res)=>{
         return res.render('users/register')
     },
-
+/*
     listar:(req,res)=>{
         Users.findAll()
         .then(listarUsuarios => {
             res.render('users/listar', {listarUsuarios: listarUsuarios})
         });
 
-    },
+    },*/
 
     delete: (req, res) =>{
         let userId = req.params.id;

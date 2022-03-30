@@ -1,0 +1,71 @@
+USUARIOS-API-CONTROLLERS
+
+listar:(req,res)=>{
+        db.Users.findAll()
+        .then(listarUser => {
+            
+            
+
+            let respuesta={
+                meta: {
+                    status :200,
+                    count:listarUser.length,
+                },
+                data:{list:[]}
+                
+            }
+            
+            listarUser.forEach(user=>{
+                respuesta.data.list.push({
+                    id:user.id,
+                    name:user.name,
+                    userName:user.userName,
+                    email:user.email,
+                    detail:`api/listarUser`
+                })
+                return user
+            })
+
+            return res.status(200).json(respuesta)
+        })
+        .catch(error => {res.send({error:'Not found'});})
+        
+    },
+
+    ---
+    listar:(req,res)=>{
+        db.Users.findAll()
+        .then(listarUser => {
+            let array=[]
+            let forFunction= () =>{
+                for(let usuario of listarUser){
+                    let unUser={
+                        id:usuario.id,
+                        name:usuario.name,
+                        userName:usuario.userName,
+                        email:usuario.email,
+                        detail: 'api/listarUser'+ usuario.id
+                    }
+                    array.push(unUser)
+                }
+                //return unUser
+            
+            
+            let respuesta={
+                meta: {
+                    status : 200,
+                    count: listarUser.length,
+                },
+                users:
+                    array
+                
+                
+                
+            }
+        
+            return res.status(200).json(respuesta)
+        }
+        })
+        
+        
+    },

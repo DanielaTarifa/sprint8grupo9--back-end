@@ -26,6 +26,8 @@ app.set('views','src/views');//por otro lado vamos a crear otro set, para simpli
 const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
 const UsersRutas= require('./src/routers/UsersRutas')
 const productRutas= require('./src/routers/productRutas')
+//const productoApiRutas = require('./src/routers/api/productos')
+const usuarioApiRutas = require('./src/routers/api/usuarios')
 
 const methodOverride  = require("method-override");
 app.use(methodOverride("_method"));
@@ -37,8 +39,11 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 //Ruta users
 app.use('/', UsersRutas);
+//Rutas api
+//app.use( '/api/productos', productoApiRouters);
+app.use('/api/usuarios', usuarioApiRutas);
 
-
+console.log(usuarioApiRutas)
 
 /*app.get('/logout', function (req, res) {
     req.session.destroy();
