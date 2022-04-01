@@ -37,7 +37,7 @@ router.get('/logout/', userLoggedMiddleware, usersController.logout);// esta bie
 
 
 //crud
-//router.get('/listar', userLoggedMiddleware ,usersController.listar);
+router.get('/listar', userLoggedMiddleware ,usersController.listar);
 router.post('/register', uploadFile.single('avatar'), validaciones, usersController.processRegister);//agrega usuarios
 router.get('/borrar/:id', guestMiddleware ,usersController.delete);
 

@@ -1,18 +1,20 @@
 const express= require('express');
 const router= express.Router();
 
-const path = require('path');
-const productApiController= require('../../controllers/api/productApiController');
+const productApiController= require('../../controllers/api/productos');
 
 //rutas
 
-//home
-router.get('/', productApiController.allss);
-//listas pruduct
-//router.get('/', productApiController.listAdmi);//listado admi-alls
-//router.get('/todos', productApiController.listClient);//listado admi-alls
+//listado de apis-productos
+router.get('/', productApiController.listado);
 
 //detalle
-//router.get('/:id', apiProductController.detail);
+router.get('/:id', productApiController.detalle);
 
 module.exports = router;
+
+//para buscarlo en postman-listado
+//      http://localhost:3000/api/productos/
+
+//para buscarlo en postman-detalle de cada producto
+//      http://localhost:3000/api/productos/1
