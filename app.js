@@ -40,8 +40,8 @@ app.use(express.json());
 //Ruta users
 app.use('/', UsersRutas);
 //Rutas api
-app.use( '/api/productos', productoApiRutas);
-app.use('/api/usuarios', usuarioApiRutas);
+//app.use( '/api/productos', productoApiRutas);
+//app.use('/api/usuarios', usuarioApiRutas);
 
 console.log(usuarioApiRutas)
 
