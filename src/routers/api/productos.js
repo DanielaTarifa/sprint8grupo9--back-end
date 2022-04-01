@@ -17,4 +17,4 @@ module.exports = router;
 //      http://localhost:3000/api/productos/
 
 //para buscarlo en postman-detalle de cada producto
-//      http://localhost:3000/api/productos/1
+//      http://localhost:3000/api/productos/46

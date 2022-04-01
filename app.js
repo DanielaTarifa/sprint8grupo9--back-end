@@ -53,6 +53,6 @@ console.log(usuarioApiRutas)
 
 
 
-app.listen(process.env.PORT || 3000 , ()=>{
+app.listen(process.env.PORT || 3001 , ()=>{
     console.log('Servidor funcionando');
 });

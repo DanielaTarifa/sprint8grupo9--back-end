@@ -21,7 +21,7 @@ const userApiController={
                         name:listarUser[i].name,
                         //userName:userName[i],
                         email:listarUser[i].email,
-                        detail: `http://localhost:3000/api/usuarios/`+ listarUser[i].id
+                        detail: `http://localhost:3001/api/usuarios/`+ listarUser[i].id
                     }
                     array.push(unUser)
                 }
@@ -36,7 +36,7 @@ const userApiController={
         .catch(error => {res.send({error:'Not found'});})
 
         //para buscarlo en postman
-        //http://localhost:3000/api/usuarios/
+        //http://localhost:3001/api/usuarios/
     },
     detalle:(req,res)=>{
         Users.findByPk(req.params.id)
@@ -50,7 +50,7 @@ const userApiController={
                         email:unUser.email,
                         cel:unUser.cel,
                         rol:unUser.rol,
-                        avatar: `http://localhost:3000/img/avatar/` + unUser.avatar,
+                        avatar: `http://localhost:3001/img/avatar/` + unUser.avatar,
                         
                     }
             }
@@ -59,7 +59,7 @@ const userApiController={
         .catch(error => {   res.send({error:'Not found'}); })
 
         //para buscarlo en postman
-        //http://localhost:3000/api/usuarios/13
+        //http://localhost:3001/api/usuarios/13
     }
 
 }

@@ -82,7 +82,7 @@ const productApiController={
                             name:productos[i].name,
                             description:productos[i].description,
                             category:productos[i].Category.name,//para ver el name
-                            detail: `http://localhost:3000/api/productos/`+ productos[i].id,
+                            detail: `http://localhost:3001/api/productos/`+ productos[i].id,
                             
                         }
                         arrayProd.push(unProduct)
@@ -91,7 +91,7 @@ const productApiController={
                 let arrayCatego=[
                     {
                     name:'Mouse',
-                    count:catego[0]
+                    count:catego[0]//es del this el cual recore posision por posicion al promise.all
                     },
                     {
                     name:'Teclado',
@@ -164,7 +164,7 @@ const productApiController={
             let respuesta={
                 infoProduct: unProduct,
                 arrays: array,
-                imagen: `http://localhost:3000/img/${producto.img}` ,
+                imagen: `http://localhost:3001/img/${producto.img}` ,
             }
             return res.status(200).json(respuesta)
         })
