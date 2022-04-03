@@ -4,10 +4,10 @@ const sequelize = db.sequelize;
 const Op= db.sequelize.Op;
 
 //una forma de llamar a modelos de la carpeta models
-const Products = db.Products;
-const Categories = db.Categories;
-const Numbersofinstallments = db.Numbersofinstallments;
-const Sections = db.Sections;
+const Products = db.Product;
+const Categories = db.Category;
+const Numbersofinstallments = db.Numbersofinstallment;
+const Sections = db.Section;
 
 
 const productApiController={
@@ -16,49 +16,49 @@ const productApiController={
 
         let mouse=Products.count({
             where:{
-                categoryId:15
+                categoryId:1
             }
         })
 
         let teclado=Products.count({
             where:{
-                categoryId:16
+                categoryId:2
             }
         })
 
         let auriculares=Products.count({
             where:{
-                categoryId:17
+                categoryId:3
             }
         })
 
         let cpu=Products.count({
             where:{
-                categoryId:18
+                categoryId:4
             }
         })
 
         let placaDeVideo=Products.count({
             where:{
-                categoryId:19
+                categoryId:5
             }
         })
 
         let Procesador=Products.count({
             where:{
-                categoryId:20
+                categoryId:6
             }
         })
 
         let Pantalla=Products.count({
             where:{
-                categoryId:21
+                categoryId:7
             }
         })
 
         let kitCombo=Products.count({
             where:{
-                categoryId:22
+                categoryId:8
             }
         })
         
@@ -70,7 +70,7 @@ const productApiController={
 
         
             Products.findAll({
-                include:['Category']
+                include:['category']
             })
     
             .then((productos) =>{
@@ -81,7 +81,7 @@ const productApiController={
                             id:productos[i].id,
                             name:productos[i].name,
                             description:productos[i].description,
-                            category:productos[i].Category.name,//para ver el name
+                            category:productos[i].category.name,//para ver el name
                             detail: `http://localhost:3001/api/productos/`+ productos[i].id,
                             
                         }

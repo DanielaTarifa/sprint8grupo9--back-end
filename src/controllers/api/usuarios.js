@@ -5,8 +5,8 @@ const sequelize = db.sequelize;
 const { Op, where } = require("sequelize");
 
 
-const Users = db.Users;
-const Rols = db.Rols;
+const Users = db.User;
+const Rols = db.Rol;
 
 
 const userApiController={
