@@ -115,13 +115,13 @@ const usersController={
 
                         if (req.body.remember_user){
 
-                            res.cookie('userEmail', req.body.email, {maxAge:(1000 * 60) * 60})
+                            return res.cookie('userEmail', req.body.email, {maxAge:(1000 * 60) * 60})
                         }
 
-                            res.redirect('/perfil')
+                        return res.redirect('/perfil')
                     }
 
-                    res.render('./users/login' , {
+                    return res.render('./users/login' , {
                         errors: {
                             email: {
                                 msg: 'Las credenciales son inválidas!'
@@ -129,7 +129,7 @@ const usersController={
                         }
                     });
                 } else {
-                    res.render('./users/login', {
+                    return res.render('./users/login', {
                         errors: {
                             email: {
                                 msg: 'Debes escribir tu correo electrónico'

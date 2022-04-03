@@ -34,10 +34,11 @@ app.use(methodOverride("_method"));
 
 //Ruta product
 app.use(userLoggedMiddleware);
-app.use('/', productRutas);
+
 app.use(express.urlencoded({extended:true})); 
 app.use(express.json());
 //Ruta users
+app.use('/', productRutas);
 app.use('/', UsersRutas);
 //Rutas api
 app.use( '/api/productos', productoApiRutas);
