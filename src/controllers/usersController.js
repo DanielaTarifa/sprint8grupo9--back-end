@@ -11,9 +11,9 @@ const { Op } = require("sequelize");
 
 
 //una forma de llamar a modelos de la carpeta models
-const Users = db.Users;
-const Rols = db.Rols;
-
+const Users = db.User;
+const Rols = db.Rol;
+ 
 const usersController={
     register:(req,res)=>{
         return res.render('users/register')
@@ -34,7 +34,7 @@ const usersController={
             return res.redirect('/')})
         .catch(error => res.send(error)) 
     },
-
+    
     processRegister:(req,res)=>{
         const resultValidation = validationResult(req);
 
@@ -47,6 +47,7 @@ const usersController={
 
     //tiene que salir un cartel q ya esta en uso el mail si se repite 2 veces//
     /*let userInDB =  db.Users.findOne ({where: {email: req.body.email}});
+
     console.log(userInDB);
     console.log(userInDB instanceof Users);
         
@@ -78,7 +79,7 @@ const usersController={
                 return res.send(error);
             });
 
-
+            
 
         //crea nuevos usuarios en json/ 
         /*let userToCreate= {
@@ -87,7 +88,9 @@ const usersController={
             avatar: req.file.filename,
             rol: "cliente"
         }
+
         let userCreated=  User.create(userToCreate);
+
         return res.redirect('/login'); //una vez registrado te lleva para que entres x login */
     },
 
@@ -131,7 +134,7 @@ const usersController={
                             email: {
                                 msg: 'Debes escribir tu correo electrónico'
                             }
-
+                            
                         }
                     });
                 }
@@ -157,7 +160,7 @@ const usersController={
 
             Users.findByPk(req.params.id)//este es para llamar a los datos viejo, y el parametro 'unProducto' es para usarlo en plan la imagen
                 .then(function(unUsuario){
-
+        
                     Users.update({
                         name: req.body.nombre,
                         lastname: req.body.apellido,
@@ -171,35 +174,35 @@ const usersController={
                     })
                     .then( () => {//aca actualizo session
                         Users.findByPk(req.params.id)//LLAMO A  LOS DATOS ACTUALIZADOS, recien ahora puedo hacer la actualizacion a session,este 2do es para llamar con los datos actualizados, q paso por el update
-
+        
                         .then(function (Users) {
                             req.session.userLogged = Users
-
+        
                             res.redirect("/perfil");
                         })
-
-
+                            
+                            
                     })
-
+                    
                     .catch( error => {
                         return res.send(error);
                     });
-
+        
                 })
 
         }
 
-
-
+    
+        
     },
-
-
+    
+    
     recover:(req,res)=>{
         return res.render('users/recuperar');
     },//esta bien
 
     perfil:(req,res)=>{
-
+        
         res.render('users/perfil', {user: req.session.userLogged});
 
     },//esta bien

@@ -7,7 +7,7 @@ const uName = document.getElementById("Nombre de usuario");
 const uAvatar = document.querySelector("#avatar");
 const uTel= document.getElementById("tel");
 const email = document.getElementById("e-mail");
-const pass = document.getElementById("contraeña");
+
 
 
 let firstNameValidator = () => {
@@ -145,30 +145,7 @@ email.classList.remove('error-input');
 feedbackElement.innerText = feedback;
 }
 
-let passValidator= () => {
 
-let feedback =" ";
-let feedbackElement = pass.nextElementSibling;
-
-
-if ( pass.value.trim() == "") {
-   feedback = "La constraseña no puede estar vacía"
-}else if (pass.value.length < 8) {
-   feedback = "La contraseña debe ser de 8 caracteres"
-}
-
-
-if (feedback) {
-pass.classList.add('error-input');
-    errors.pass = feedback;
-}else {
-pass.classList.remove('error-input');
-delete errors.pass;
-        }
-
-
-feedbackElement.innerText = feedback;
-}
 
 
 formu.addEventListener("submit", (e) => {
@@ -178,7 +155,7 @@ emailValidator();
 userNameValidator();
 avatarValidator();
 telValidator();
-passValidator();
+
 
 if (Object.keys(errors).length ) {
 e.preventDefault();
@@ -195,4 +172,3 @@ uName.addEventListener("blur", userNameValidator);
 uAvatar.addEventListener("blur", avatarValidator);
 uTel.addEventListener("blur", telValidator);
 email.addEventListener("blur", emailValidator);
-pass.addEventListener("blur", passValidator);

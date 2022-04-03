@@ -11,10 +11,10 @@ const { buildCheckFunction, validationResult } = require('express-validator');
 const { createConnection } = require('net');
 
 //una forma de llamar a modelos de la carpeta models
-const Products = db.Products;
-const Categories = db.Categories;
-const Numbersofinstallments = db.Numbersofinstallments;
-const Sections = db.Sections;
+const Products = db.Product;
+const Categories = db.Category;
+const Numbersofinstallments = db.Numbersofinstallment;
+const Sections = db.Section;
 
 const productController={
     
@@ -23,7 +23,7 @@ const productController={
         let productos =Products.findAll()
         .then(function(productos){
             res.render('./products/index',{productos:productos,mil:toThousand})
-        })
+        }).catch(error => res.send(error))
         
     },
     listAdmi:(req,res)=>{//listado para los admi
@@ -73,7 +73,7 @@ const productController={
                     errors:resultValidation.mapped(), 
                     oldData:req.body,
                 })
-            })
+            }).catch(error => res.send(error))
             
     
         }else{
@@ -202,13 +202,13 @@ const productController={
     
         let search = req.query.search.toLowerCase()
         
-        db.Products.findAll({
-            include: ['Category']
+        db.Product.findAll({
+            include: ['category']
         })
         .then( products => {
-            let filtrados = products.filter(e => e.name.toLowerCase().includes(search) || e.Category.name.toLowerCase().includes(search));
+            let filtrados = products.filter(e => e.name.toLowerCase().includes(search) || e.category.name.toLowerCase().includes(search));
             res.render('./products/categories', { filtrados})
-        })
+        }).catch(error => res.send(error))
     },
 
     ayuda: (req, res) => { 

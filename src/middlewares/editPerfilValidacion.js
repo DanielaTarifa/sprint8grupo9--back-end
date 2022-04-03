@@ -32,21 +32,6 @@ module.exports={
             .notEmpty().withMessage('Debes escribir tu teléfono').bail()
             .isInt().withMessage('Deben ser números')
         ,
-        body('password')
-            .notEmpty().withMessage('Debes escribir una contraseña').bail()
-            .isLength({min:8}).withMessage('La contraseña ser mas larga'),
-        body('otraPassword')
-            .notEmpty().withMessage('Debes reescribir tu contraseña').bail()
-            .isLength({min:8}).withMessage('La contraseña ser más larga').bail()
-            .custom((value, { req }) => {
-                if (value !== req.body.password) {
-                  throw new Error('La contraseña de confirmación deben coincidir con la contraseña');
-                }
-            
-                // Indica el éxito de este validador personalizado síncrono
-    
-                return true;
-              })
             
             
     
