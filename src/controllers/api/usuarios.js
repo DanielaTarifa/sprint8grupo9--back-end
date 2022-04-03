@@ -49,7 +49,7 @@ const userApiController={
                         userName:unUser.userName,
                         email:unUser.email,
                         cel:unUser.cel,
-                        rol:unUser.rol,
+                        rolId:unUser.rol,
                         avatar: `http://localhost:3001/img/avatar/` + unUser.avatar,
                         
                     }

@@ -127,7 +127,7 @@ const productApiController={
                     count: productos.length,
                     countByCategory: arrayCatego,
                     countCategory:catego[8].length,
-                    users: arrayProd
+                    products: arrayProd
                 }
                 return res.status(200).json(respuestaProduct)
             })
@@ -137,12 +137,12 @@ const productApiController={
 
     detalle:(req,res)=>{
         Products.findByPk(req.params.id,{
-            include:['Category', 'section','duesNumbers']//el include lo saco talcual esta en en el (as:)---> /database/models/products--belongTo{as:Nombre}
+            include:['category', 'section','duesNumbers']//el include lo saco talcual esta en en el (as:)---> /database/models/products--belongTo{as:Nombre}
         })
         .then((producto)=>{
             
             let array=[
-            {nameCategory: producto.Category.name},
+            {nameCategory: producto.category.name},
             {nameSeccion: producto.section.name},
             {nameCuota: producto.duesNumbers.name}
             ]
