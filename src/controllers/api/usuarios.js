@@ -11,7 +11,7 @@ const Rols = db.Rol;
 
 const userApiController={
     listar:(req,res)=>{
-        db.Users.findAll()
+        db.User.findAll()
         .then(listarUser => {
             let array=[]
             

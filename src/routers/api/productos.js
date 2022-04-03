@@ -14,7 +14,7 @@ router.get('/:id', productApiController.detalle);
 module.exports = router;
 
 //para buscarlo en postman-listado
-//      http://localhost:3000/api/productos/
+//      http://localhost:3001/api/productos/
 
 //para buscarlo en postman-detalle de cada producto
-//      http://localhost:3000/api/productos/46
+//      http://localhost:3001/api/productos/46

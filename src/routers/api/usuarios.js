@@ -11,6 +11,6 @@ router.get('/:id', userApiController.detalle);
 module.exports = router
 
 //para buscarlo en postman-lista
-        //http://localhost:3000/api/usuarios/
+        //http://localhost:3001/api/usuarios/
 //para buscarlo en postman-cada usuario(detalle)
-        //http://localhost:3000/api/usuarios/13
+        //http://localhost:3001/api/usuarios/13
