@@ -82,6 +82,7 @@ const productApiController={
                             name:productos[i].name,
                             description:productos[i].description,
                             category:productos[i].category.name,//para ver el name
+                            imagen: `http://localhost:3001/img/${productos[i].img}`,
                             detail: `http://localhost:3001/api/productos/`+ productos[i].id,
                             
                         }
@@ -126,7 +127,7 @@ const productApiController={
                 
                 
                     
-                        let ultimo=productos.pop()
+                        let ultimo=arrayProd.pop()
                         
                         
                     
