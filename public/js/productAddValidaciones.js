@@ -18,20 +18,20 @@ window.addEventListener("load", function () {
 
 
     let tituloValidator = () => {
-    // Declaro string vacio que contendra mensaje de error
+
       let feedback = "";
       
-      // Almaceno elemento hermano(<p>) a input nombre, hay un p al final
+
       let feedbackElement = titulo.nextElementSibling;
 
-      // Si el nombre no valida sobreescribo feedback
+    
       if (titulo.value.trim() == "") {
           feedback = "El nombre no puede estar vacio"
       }else if (titulo.value.length < 5) {
           feedback = "El nombre no puede tener menos de 5 caracteres"
       }
 
-      // Si existe error se almacena en objeto errors
+  
       if (feedback) {
         titulo.classList.add('error-input');
           errors.firstName = feedback;
@@ -40,9 +40,7 @@ window.addEventListener("load", function () {
           delete errors.firstName;
       }
 
-      // Se imprime string de error en vista
-      // Utilizo el <p> hermano para publicar el error
-      //feedbackElement es el siguiente hermano, es decir el P
+    
       feedbackElement.innerText = feedback;
     }
 
@@ -50,19 +48,18 @@ window.addEventListener("load", function () {
 
 
     let  precioValidator = () => {
-      // Declaro string vacio que contendra mensaje de error
+     
       let feedback = "";
-      // Almaceno elemento hermano(<p>) a input nombre, hay un p al final
+    
       let feedbackElement = precio.nextElementSibling;
 
-      // Si el nombre no valida sobreescribo feedback
+   
       if (precio.value.trim() == "") {
           feedback = "El precio no puede estar vacio"
       }else if (precio.value.length < 2) {
           feedback = "El precio no puede tener menos de 2 caracteres"
       }
 
-      // Si existe error se almacena en objeto errors
       if (feedback) {
         precio .classList.add('error-input');
           errors.precio  = feedback;
@@ -71,9 +68,7 @@ window.addEventListener("load", function () {
           delete errors.precio ;
       }
 
-      // Se imprime string de error en vista
-      // Utilizo el <p> hermano para publicar el error
-      //feedbackElement es el siguiente hermano, es decir el P
+
       feedbackElement.innerText = feedback;
     }
 
@@ -81,14 +76,14 @@ window.addEventListener("load", function () {
 
 
     let  categoriasValidator = () => {
-          // Declaro string vacio que contendra mensaje de error
+    
       let feedback = "";
-      // Almaceno elemento hermano(<p>) a input nombre, hay un p al final
+ 
       let feedbackElement = categorias.nextElementSibling;
 
-      // Si el nombre no valida sobreescribo feedback
+      
       if (categorias.value == "") {
-          feedback = "Debes selecionar una categoria"
+          feedback = "Debes selecionar una categoría"
           feedback.select= feedback
       }
 
@@ -101,9 +96,7 @@ window.addEventListener("load", function () {
           delete errors.categorias ;
       }
 
-      // Se imprime string de error en vista
-      // Utilizo el <p> hermano para publicar el error
-      //feedbackElement es el siguiente hermano, es decir el P
+
       feedbackElement.innerText = feedback;
     }
 
@@ -117,7 +110,7 @@ window.addEventListener("load", function () {
 
       // Si el nombre no valida sobreescribo feedback
       if (descripcion.value.trim() == "") {
-          feedback = "La descripcion no puede estar vacio"
+          feedback = "La descripcion no puede estar vacío"
       }else if (descripcion.value.length < 20) {
           feedback = "La descripcion no puede tener menos de 20 caracteres"
       }
@@ -147,7 +140,7 @@ window.addEventListener("load", function () {
 
     
     if (imagen.files.length == 0) {
-      feedback = "Debes elegir una foto de perfil"
+      feedback = "Debes elegir una foto para el producto"
     }else if (imagen.files[0].type != 'image/jpeg' && imagen.files[0].type !='image/png' && imagen.files[0].type !='image/gif') {
       feedback = "El formato del archivo debe ser válido (JPG, JPEG, PNG, GIF)"
     }
@@ -223,7 +216,7 @@ window.addEventListener("load", function () {
 
   
       if (stock.value.trim() == "") {
-          feedback = "El stock no puede estar vacio"
+          feedback = "El stock no puede estar vacío"
       }else if (stock.value.length < 2) {
           feedback = "El stock no puede tener menos de 2 caracteres"
       }

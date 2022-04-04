@@ -104,7 +104,7 @@ let  telValidator = () => {
 
 let  avatarValidator = () => {
 
-    let feedback = "";
+    let feedback = "";  
 
     let feedbackElement = uAvatar.nextElementSibling;
 
