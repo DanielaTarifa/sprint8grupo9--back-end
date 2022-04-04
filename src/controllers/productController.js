@@ -155,7 +155,7 @@ const productController={
                 stockMin:req.body.stockMinimo,
                 stockMax:req.body.stockMaximo,
                 sectionId:req.body.seccion,
-                categoryId:req.body.categoria,
+                categoryId:req.body.categorias,
             },{
                 where:{
                     id:req.params.id
