@@ -123,10 +123,19 @@ const productApiController={
                     },
                 ]
 
+                
+                
+                    
+                        let ultimo=productos.pop()
+                        
+                        
+                    
+
                 let respuestaProduct={
                     count: productos.length,
                     countByCategory: arrayCatego,
                     countCategory:catego[8].length,
+                    ultimoproduct: ultimo,
                     products: arrayProd
                 }
                 return res.status(200).json(respuestaProduct)
