@@ -97,7 +97,7 @@ let  telValidator = () => {
         uTel.classList.add('error-input');
         errors.uTel = feedback;
     }else {
-        uTelclassList.remove('error-input');
+        uTel.classList.remove('error-input');
         delete errors.uTel;
     }
 
