@@ -55,9 +55,7 @@ passValidator();
 
 if (Object.keys(errors >=1 ).length) {
 e.preventDefault();
-} else {
-alert(`Bienvenid@ de nuevo!`)
-}
+} 
 
 });
 

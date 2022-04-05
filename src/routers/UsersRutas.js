@@ -1,5 +1,5 @@
-const express= require ('express');
-const router= express.Router();
+const express= require ('express'); //se requiere el modulo de express
+const router= express.Router(); //para modularizar el sistema de ruteo
 const path = require('path');
 
 
@@ -13,12 +13,12 @@ const userLoggedMiddleware = require('../middlewares/userLoggedMiddleware');
 
 
 //controllers
-let usersController= require('../controllers/usersController');
+let usersController= require('../controllers/usersController'); //para implementar el controlador se require
 
 
 //rutas:
 //formulario de Login
-router.get('/login', guestMiddleware, usersController.login);
+router.get('/login', guestMiddleware, usersController.login);//se llama la ruta y se ejecuta el metodo http
 //procesar el login
 router.post('/login', usersController.processLogin);
 

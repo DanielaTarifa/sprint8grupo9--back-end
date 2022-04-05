@@ -16,7 +16,7 @@ const Categories = db.Category;
 const Numbersofinstallments = db.Numbersofinstallment;
 const Sections = db.Section;
 
-const productController={
+const productController={ 
     
     all:(req,res)=>{
         

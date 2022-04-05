@@ -14,7 +14,7 @@ const { Op } = require("sequelize");
 const Users = db.User;
 const Rols = db.Rol;
  
-const usersController={
+const usersController={ //se crea la variable y se define un obkjeto literal, dentro del objeto se definen los metodos
     register:(req,res)=>{
         return res.render('users/register')
     },
@@ -214,4 +214,4 @@ const usersController={
     }// esta bien
 }
 
-module.exports=usersController;
+module.exports=usersController; //para implementar el controlador se exporta y se require en la ruta
