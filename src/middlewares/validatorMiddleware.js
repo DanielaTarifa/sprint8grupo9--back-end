@@ -12,7 +12,7 @@ module.exports={
 	.notEmpty().withMessage('Debe escribir un correo electrónico').bail()
 	.isEmail().withMessage('Debe ingresar un correo válido'),
 	body("email", "Este email ya se encuentra en uso").custom((value) => {
-        return db.Users
+        return db.User
             .findOne({ where: { email: value } })
             .then((usuario) => {
             if (usuario) {
