@@ -1,6 +1,6 @@
 # Compu mundo hiper mega red Tommy chips & asociados computer
 ## Trello memo
-https://trello.com/b/TptefJH1/trabajo-integrado-sprint-7
+https://trello.com/b/Fb53hKlP/trabajo-integrador-sprint-8
 
 ## Para acceder por login como comprador=
 
@@ -14,4 +14,4 @@ https://trello.com/b/TptefJH1/trabajo-integrado-sprint-7
 
 ° contraseña: mpc12345
 
-https://trello.com/b/TptefJH1/trabajo-integrado-sprint-7
+
