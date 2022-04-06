@@ -184,12 +184,9 @@ avatarValidator();
 telValidator();
 passValidator();
 
-if (Object.keys(errors).length ) {
-e.preventDefault();
-} else {
-alert(`se guardaron correctamente los datos, Bienvenid@ !`)
-
-        }
+if (Object.keys(errors >=1 ).length) {
+    e.preventDefault();
+    } 
 
 });
 
