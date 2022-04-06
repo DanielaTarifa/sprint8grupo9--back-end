@@ -232,8 +232,8 @@ window.addEventListener("load", function () {
   
       if (stockMaximo.value.trim() == "") {
           feedback = "El stock no puede estar vacío"
-      }else if (stockMaximo.value.length < 2) {
-          feedback = "El stock no puede tener menos de 2 caracteres"
+      }else if (stockMaximo.value.length < 0) {
+          feedback = "El stock no puede tener menos de 1 caracteres"
       }
 
       if (feedback) {

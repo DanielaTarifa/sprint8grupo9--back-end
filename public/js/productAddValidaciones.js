@@ -158,31 +158,6 @@ window.addEventListener("load", function () {
 
   }
 
-/**let  imagenValidator = () => {
-      
-    let feedback = "";
-
-    let feedbackElement = imagen.nextElementSibling;
-
-    if (imagen.value.trim() == "") {
-        feedback = "Debes elegir una foto de perfil"
-    }else if (imagen.file != ".jpg", ".jpeg", ".png", ".gif") {
-        feedback = "El formato del archivo debe ser válido (JPG, JPEG, PNG, GIF)"
-    }
-
-    if (feedback) {
-        imagen.classList.add('error-input');
-        errors.imagen = feedback;
-    }else {
-        imagen.classList.remove('error-input');
-        delete errors.imagen;
-    }
-
-    feedbackElement.innerText = feedback;
-
-  }
- */
-
 
     let  coutasValidator = () => {
       let feedback = "";
@@ -217,8 +192,8 @@ window.addEventListener("load", function () {
   
       if (stock.value.trim() == "") {
           feedback = "El stock no puede estar vacío"
-      }else if (stock.value.length < 2) {
-          feedback = "El stock no puede tener menos de 2 caracteres"
+      }else if (stock.value.length < 1) {
+          feedback = "El stock no puede tener menos de 1 caracteres"
       }
 
 
@@ -243,8 +218,8 @@ window.addEventListener("load", function () {
 
       if (stockMinimo.value.trim() == "") {
           feedback = "El stock no puede estar vacio"
-      }else if (stockMinimo.value.length < 2) {
-          feedback = "El stock no puede tener menos de 2 caracteres"
+      }else if (stockMinimo.value.length < 1) {
+          feedback = "El stock no puede tener menos de 1 caracteres"
       }
 
       if (feedback) {
@@ -269,8 +244,8 @@ window.addEventListener("load", function () {
 
       if (stockMaximo.value.trim() == "") {
           feedback = "El stock no puede estar vacio"
-      }else if (stockMaximo.value.length < 2) {
-          feedback = "El stock no puede tener menos de 2 caracteres"
+      }else if (stockMaximo.value.length < 1) {
+          feedback = "El stock no puede tener menos de 1 caracteres"
       }
 
       if (feedback) {
